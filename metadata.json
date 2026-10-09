@@ -1,0 +1,6 @@
+{
+  "name": "Gelatieri | Fábrica de Helados Artesanales",
+  "description": "Fábrica mexicana de helado artesanal tipo italiano desde 2006. Suministro Horeca para restaurantes, hoteles, desarrollo de marca propia y maquila especializada.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
