@@ -12,7 +12,7 @@ export const FLAVORS_DATA: Flavor[] = [
     allergens: [],
     fatContent: '',
     sugarProfile: '',
-    image: '/images/flavors/vainilla.jpg',
+    image: `${import.meta.env.BASE_URL}images/flavors/vainilla.jpg`,
     isBestseller: true,
     availableFormats: []
   },
@@ -27,7 +27,7 @@ export const FLAVORS_DATA: Flavor[] = [
     allergens: [],
     fatContent: '',
     sugarProfile: '',
-    image: '/images/flavors/fresa.jpg',
+    image: `${import.meta.env.BASE_URL}images/flavors/fresa.jpg`,
     isBestseller: true,
     availableFormats: []
   },
@@ -42,7 +42,7 @@ export const FLAVORS_DATA: Flavor[] = [
     allergens: [],
     fatContent: '',
     sugarProfile: '',
-    image: '/images/flavors/chocolate.jpg',
+    image: `${import.meta.env.BASE_URL}images/flavors/chocolate.jpg`,
     isBestseller: true,
     availableFormats: []
   },
@@ -57,7 +57,7 @@ export const FLAVORS_DATA: Flavor[] = [
     allergens: [],
     fatContent: '',
     sugarProfile: '',
-    image: '/images/flavors/pistache.jpg',
+    image: `${import.meta.env.BASE_URL}images/flavors/pistache.jpg`,
     isBestseller: true,
     availableFormats: []
   },
@@ -72,7 +72,7 @@ export const FLAVORS_DATA: Flavor[] = [
     allergens: [],
     fatContent: '',
     sugarProfile: '',
-    image: '/images/flavors/limon.jpg',
+    image: `${import.meta.env.BASE_URL}images/flavors/limon.jpg`,
     isBestseller: true,
     availableFormats: []
   },
@@ -87,7 +87,7 @@ export const FLAVORS_DATA: Flavor[] = [
     allergens: [],
     fatContent: '',
     sugarProfile: '',
-    image: '/images/flavors/ferrero.jpg',
+    image: `${import.meta.env.BASE_URL}images/flavors/ferrero.jpg`,
     isBestseller: true,
     availableFormats: []
   }

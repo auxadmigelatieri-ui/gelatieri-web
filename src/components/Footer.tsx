@@ -5,11 +5,12 @@ import { useTheme } from '../context/ThemeContext';
 export const Footer: React.FC = () => {
   const { theme } = useTheme();
 
+  const base = import.meta.env.BASE_URL;
   const logoSrc = theme === 'presencia'
-    ? '/images/logos/presencia-negativo.png'
+    ? `${base}images/logos/presencia-negativo.png`
     : theme === 'clasico'
-      ? '/images/logos/clasico-negativo.png'
-      : '/images/logos/minimalista-negativo.png';
+      ? `${base}images/logos/clasico-negativo.png`
+      : `${base}images/logos/minimalista-negativo.png`;
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });

@@ -87,7 +87,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenQuote, onOpenSampleModal }) =>
             <div className="relative mx-auto max-w-md lg:max-w-none">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 aspect-[4/5] sm:aspect-[4/4.8]" style={{ borderColor: 'var(--bg-card)', backgroundColor: 'var(--bg-secondary)' }}>
                 <video
-                  src="/videos/hero.mp4"
+                  src={`${import.meta.env.BASE_URL}videos/hero.mp4`}
                   autoPlay
                   loop
                   muted

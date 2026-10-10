@@ -18,11 +18,12 @@ export const Navbar: React.FC<NavbarProps> = ({
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  const base = import.meta.env.BASE_URL;
   const logoSrc = theme === 'presencia'
-    ? '/images/logos/presencia-negativo.png'
+    ? `${base}images/logos/presencia-negativo.png`
     : theme === 'clasico'
-      ? '/images/logos/clasico-positivo.png'
-      : '/images/logos/minimalista-positivo.png';
+      ? `${base}images/logos/clasico-positivo.png`
+      : `${base}images/logos/minimalista-positivo.png`;
 
   useEffect(() => {
     const handleScroll = () => {
