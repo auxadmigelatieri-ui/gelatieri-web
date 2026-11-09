@@ -1,109 +1,16 @@
-import { Flavor } from '../types';
+import type { Flavor } from '../types';
 
-export const FLAVORS_DATA: Flavor[] = [
-  {
-    id: 'vainilla',
-    name: 'Vainilla',
-    italianName: 'Vaniglia',
-    category: 'clasicos',
-    description: '',
-    ingredients: [],
-    tastingNotes: [],
-    allergens: [],
-    fatContent: '',
-    sugarProfile: '',
-    image: `${import.meta.env.BASE_URL}images/flavors/vainilla.jpg`,
-    isBestseller: true,
-    availableFormats: []
-  },
-  {
-    id: 'fresa',
-    name: 'Fresa',
-    italianName: 'Fragola',
-    category: 'clasicos',
-    description: '',
-    ingredients: [],
-    tastingNotes: [],
-    allergens: [],
-    fatContent: '',
-    sugarProfile: '',
-    image: `${import.meta.env.BASE_URL}images/flavors/fresa.jpg`,
-    isBestseller: true,
-    availableFormats: []
-  },
-  {
-    id: 'chocolate',
-    name: 'Chocolate',
-    italianName: 'Cioccolato',
-    category: 'clasicos',
-    description: '',
-    ingredients: [],
-    tastingNotes: [],
-    allergens: [],
-    fatContent: '',
-    sugarProfile: '',
-    image: `${import.meta.env.BASE_URL}images/flavors/chocolate.jpg`,
-    isBestseller: true,
-    availableFormats: []
-  },
-  {
-    id: 'pistache',
-    name: 'Pistache',
-    italianName: 'Pistacchio',
-    category: 'clasicos',
-    description: '',
-    ingredients: [],
-    tastingNotes: [],
-    allergens: [],
-    fatContent: '',
-    sugarProfile: '',
-    image: `${import.meta.env.BASE_URL}images/flavors/pistache.jpg`,
-    isBestseller: true,
-    availableFormats: []
-  },
-  {
-    id: 'limon',
-    name: 'Limón',
-    italianName: 'Limone',
-    category: 'frutas',
-    description: '',
-    ingredients: [],
-    tastingNotes: [],
-    allergens: [],
-    fatContent: '',
-    sugarProfile: '',
-    image: `${import.meta.env.BASE_URL}images/flavors/limon.jpg`,
-    isBestseller: true,
-    availableFormats: []
-  },
-  {
-    id: 'ferrero',
-    name: 'Ferrero',
-    italianName: 'Ferrero',
-    category: 'clasicos',
-    description: '',
-    ingredients: [],
-    tastingNotes: [],
-    allergens: [],
-    fatContent: '',
-    sugarProfile: '',
-    image: `${import.meta.env.BASE_URL}images/flavors/ferrero.jpg`,
-    isBestseller: true,
-    availableFormats: []
-  }
+const img = (name: string) => `${import.meta.env.BASE_URL}images/flavors/${name}.webp`;
+
+// Category dot colours follow the brand rule: vanilla = Miele, pistachio = Pistacchio,
+// chocolate = Cacao, citrus and red fruit = Arancia.
+export const FLAVORS: Flavor[] = [
+  { id: 'pistache', name: 'Pistache', italian: 'Pistacchio', dot: 'var(--color-pistacchio)', image: img('pistache') },
+  { id: 'vainilla', name: 'Vainilla', italian: 'Vaniglia', dot: 'var(--color-miele)', image: img('vainilla') },
+  { id: 'chocolate', name: 'Chocolate', italian: 'Cioccolato', dot: 'var(--color-cacao)', image: img('chocolate') },
+  { id: 'fresa', name: 'Fresa', italian: 'Fragola', dot: 'var(--color-arancia)', image: img('fresa') },
+  { id: 'limon', name: 'Limón', italian: 'Limone', dot: 'var(--color-arancia)', image: img('limon') },
+  { id: 'ferrero', name: 'Ferrero', italian: 'Nocciola e cioccolato', dot: 'var(--color-cacao)', image: img('ferrero') },
 ];
 
-export const CATEGORY_LABELS: Record<string, { title: string; subtitle: string }> = {
-  todos: {
-    title: 'Catálogo Completo',
-    subtitle: 'Más de 35 formulaciones disponibles y desarrollo a medida para tu carta'
-  },
-  clasicos: {
-    title: 'Tradizione Italiana',
-    subtitle: 'Clásicos eternos formulados con pastas puras italianas y leche fresca'
-  },
-  frutas: {
-    title: 'Sorbettos & Veganos (0% Lácteos)',
-    subtitle: 'Fruta fresca de temporada, base agua purificada y textura cremosa natural'
-  }
-};
+export const MAX_SAMPLES = 4;

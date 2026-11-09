@@ -1,110 +1,53 @@
-import React from 'react';
-import { ArrowUp, Mail, MapPin } from 'lucide-react';
-import { useTheme } from '../context/ThemeContext';
+import { ArrowUp } from 'lucide-react';
+import { Logo } from './Logo';
+import { Reveal } from './motion';
+import { CONTACT, NAV } from '../content';
+import { scrollToId, scrollToTop } from '../lib/smoothScroll';
 
-export const Footer: React.FC = () => {
-  const { theme } = useTheme();
-
-  const base = import.meta.env.BASE_URL;
-  const logoSrc = theme === 'presencia'
-    ? `${base}images/logos/presencia-negativo.png`
-    : theme === 'clasico'
-      ? `${base}images/logos/clasico-negativo.png`
-      : `${base}images/logos/minimalista-negativo.png`;
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
+export function Footer() {
   return (
-    <footer className="pt-16 pb-12 border-t transition-colors duration-500" style={{ backgroundColor: 'var(--bg-card-dark)', color: 'var(--text-on-dark)', borderColor: 'var(--border)' }}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <footer className="surface-dark border-t border-[var(--line-soft)] bg-cacao">
+      <div className="container-x flex flex-col items-center pt-[clamp(88px,9vw,140px)] pb-10 text-center">
+        <Reveal>
+          <Logo className="h-auto w-[min(440px,78vw)]" />
+        </Reveal>
+        <Reveal delay={0.15} className="mt-16 w-full border-y border-[var(--hairline)] py-8">
+          <nav aria-label="Pie de página" className="flex flex-wrap justify-center gap-x-10 gap-y-4 text-[12px] tracking-[0.16em] uppercase">
+            {NAV.map((n) => (
+              <a
+                key={n.id}
+                href={`#${n.id}`}
+                className="nav-link"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToId(n.id);
+                }}
+              >
+                {n.label}
+              </a>
+            ))}
+          </nav>
+        </Reveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/10 text-left">
-
-          <div className="lg:col-span-2 space-y-4">
-            <img src={logoSrc} alt="Gelatieri" className="h-10 w-auto" />
-
-            <p className="text-xs leading-relaxed max-w-sm font-light" style={{ color: 'var(--text-on-dark)', opacity: 0.7 }}>
-              Fábrica mexicana de helado artesanal con recetas italianas desde 2006. Ingredientes naturales, calidad constante y entrega refrigerada para restaurantes, hoteles y marcas en todo México.
-            </p>
-
-            <div className="text-[11px] space-y-1 pt-1" style={{ color: 'var(--text-on-dark)', opacity: 0.6 }}>
-              <p className="flex items-center gap-2">
-                <MapPin className="w-3.5 h-3.5" style={{ color: 'var(--gold)' }} />
-                <span>Norte 79 B No 117, Azcapotzalco, CDMX</span>
-              </p>
-              <p className="flex items-center gap-2">
-                <Mail className="w-3.5 h-3.5" style={{ color: 'var(--gold)' }} />
-                <span>cliente@gelatieri.com | rodolfo@gelatieri.com</span>
-              </p>
-            </div>
-          </div>
-
-          <div className="space-y-3">
-            <h4 className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--gold)' }}>
-              Servicios
-            </h4>
-            <ul className="space-y-2 text-xs" style={{ color: 'var(--text-on-dark)', opacity: 0.75 }}>
-              <li><a href="#servicios" className="hover:text-white transition-colors">Líneas de Producto</a></li>
-              <li><a href="#sabores-destacados" className="hover:text-white transition-colors">Sabores Destacados</a></li>
-              <li><a href="#servicios" className="hover:text-white transition-colors">Suministro para Restaurantes</a></li>
-              <li><a href="#servicios" className="hover:text-white transition-colors">Maquila y Marca Propia</a></li>
-              <li><a href="#cotizador" className="hover:text-white transition-colors">Cotizador de Costos</a></li>
-            </ul>
-          </div>
-
-          <div className="space-y-3">
-            <h4 className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--gold)' }}>
-              Gelatieri
-            </h4>
-            <ul className="space-y-2 text-xs" style={{ color: 'var(--text-on-dark)', opacity: 0.75 }}>
-              <li><a href="#sobre-nosotros" className="hover:text-white transition-colors">Nuestra Historia</a></li>
-              <li><a href="#testimonios" className="hover:text-white transition-colors">Testimonios de Clientes</a></li>
-              <li><a href="#contacto" className="hover:text-white transition-colors">Contacto y Ubicación</a></li>
-              <li><a href="https://wa.me/525530491823" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Agendar Visita a la Fábrica</a></li>
-            </ul>
-          </div>
-
-          <div className="space-y-3">
-            <h4 className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--gold)' }}>
-              Contacto Directo
-            </h4>
-            <p className="text-xs leading-relaxed" style={{ color: 'var(--text-on-dark)', opacity: 0.6 }}>
-              Atención personalizada para restaurantes, hoteles y marcas que buscan un proveedor de helado de calidad.
-            </p>
-            <a
-              href="https://wa.me/525530491823"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg text-white text-xs font-semibold hover:opacity-90 transition-colors"
-              style={{ backgroundColor: 'var(--accent)' }}
-            >
-              <span>WhatsApp Ventas</span>
+        <div className="mt-10 grid gap-2 text-[14px] text-panna-soft">
+          <p>{CONTACT.addressLines.join(' · ')}</p>
+          <p>
+            <a className="nav-link" href={`mailto:${CONTACT.emails[0]}`}>
+              {CONTACT.emails[0]}
             </a>
-          </div>
-
+            <span aria-hidden className="mx-3 text-miele">·</span>
+            <span className="tabular">{CONTACT.phoneDisplay}</span>
+          </p>
         </div>
 
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs" style={{ color: 'var(--text-on-dark)', opacity: 0.5 }}>
-          <div>
-            <p>&copy; {new Date().getFullYear()} Gelatieri, S.A. de C.V. Todos los derechos reservados.</p>
-            <p className="text-[10px] mt-0.5" style={{ opacity: 0.7 }}>
-              Hecho con dedicación en la Ciudad de México.
-            </p>
-          </div>
-
-          <button
-            onClick={scrollToTop}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 hover:bg-white/10 hover:text-white transition-colors cursor-pointer"
-            style={{ color: 'var(--text-on-dark)', opacity: 0.75 }}
-          >
-            <span>Volver arriba</span>
-            <ArrowUp className="w-3.5 h-3.5" />
+        <div className="mt-16 flex w-full flex-col items-center justify-between gap-6 text-[12px] text-panna-soft sm:flex-row">
+          <p>© {new Date().getFullYear()} Gelatieri. Hecho en la Ciudad de México.</p>
+          <button type="button" onClick={scrollToTop} className="link-line t-label text-[11px] text-panna-soft">
+            Volver arriba
+            <ArrowUp aria-hidden />
           </button>
         </div>
-
       </div>
     </footer>
   );
-};
+}
